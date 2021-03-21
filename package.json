@@ -4,7 +4,8 @@
   "description": "PM의 back-end 레포지토리",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node index.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,14 @@
   },
   "homepage": "https://github.com/DSM-PM/PM-back-end#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "@babel/core": "^7.13.10",
+    "@babel/node": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "bcrypt-nodejs": "0.0.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.5.1"
   }
 }

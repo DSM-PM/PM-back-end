@@ -1,15 +1,13 @@
 const express = require("express");
+const routes = require("./routes");
+const { sequelize } = require("./models");
 const app = express();
-const PORT = 5000;
 
-function handleListening() {
-  console.log(`Listening on: http://localhost:${PORT}`);
-}
+app.use(express.json());
+require("dotenv").config();
+app.use("/", routes);
+sequelize.sync();
 
-function handleHome(req, res) {
-  res.send("hello");
-}
-
-app.get("/", handleHome);
-
-app.listen(PORT, handleListening);
+app.listen(5000, () => {
+  console.log("server on");
+});
