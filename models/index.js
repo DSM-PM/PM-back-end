@@ -10,5 +10,11 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 db.User = require("./user")(sequelize, Sequelize);
+db.Board = require("./board")(sequelize, Sequelize);
+db.Card = require("./card")(sequelize, Sequelize);
+db.List = require("./list")(sequelize, Sequelize);
 
+db.Board.belongsTo(db.User);
+db.Board.hasMany(db.List);
+db.List.hasMany(db.Card);
 module.exports = db;
