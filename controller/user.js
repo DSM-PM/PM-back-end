@@ -25,7 +25,7 @@ const auth = async (req, res) => {
   if (!(await passwordCompare(req.body.password, user.password))) res.status(404).json("실패");
 
   const accessToken = await access(user.userId, process.env.SECRET_KEY);
-  res.status(200).json(accessToken);
+  res.status(200).json({ accessToken: accessToken });
 };
 
 export const findUser = async (userId) => {
