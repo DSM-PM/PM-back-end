@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(100),
     },
     pos: {
-      type: DataTypes.DOUBLE(100),
+      type: DataTypes.DOUBLE,
       defaultValue: 65535,
     },
   });
