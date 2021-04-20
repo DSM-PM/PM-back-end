@@ -13,6 +13,21 @@ const create = async (req, res, next) => {
   }
 };
 
+const query = async (req, res) => {
+  const userId = req.decoded.id;
+  try {
+    const list = await Project.findAll({ where: { userId } });
+    res.json({ list });
+  } catch (err) {
+    res.status(404).json({
+      message: "실패",
+      err: err.message,
+    });
+  }
+};
+
+
 module.exports = {
   create,
+  query,
 };
