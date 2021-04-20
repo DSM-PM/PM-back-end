@@ -1,6 +1,10 @@
 const router = require("express")();
 const user = require("./user");
 const board = require("./board");
+const project = require("./project");
+const issue = require("./issue");
 router.use("/user", user);
 router.use("/board", board);
+router.use("/project", project);
+router.use("/issue", issue);
 module.exports = router;

@@ -11,6 +11,20 @@ const create = async (req, res, next) => {
   }
 };
 
+const get = async (req, res, next) => {
+  const id = req.params.id;
+  try {
+    const issueList = await Issue.findAll({ where: { id } });
+    res.json({ issueList });
+  } catch (err) {
+    res.status(404).json({
+      message: "실패",
+      err: err.message,
+    });
+  }
+};
+
 module.exports = {
   create,
+  get,
 };
