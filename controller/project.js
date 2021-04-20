@@ -26,8 +26,22 @@ const query = async (req, res) => {
   }
 };
 
+const destroy = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await Project.destroy({ where: { id } });
+    res.status(204).json({
+      message: "삭제 성공",
+    });
+  } catch (e) {
+    res.status(404).json({
+      message: e.message,
+    });
+  }
+};
 
 module.exports = {
   create,
   query,
+  destroy,
 };
