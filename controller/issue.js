@@ -24,6 +24,22 @@ const get = async (req, res, next) => {
   }
 };
 
+const update = async (req, res) => {
+  const { id } = req.params;
+  const { category } = req.body;
+  try {
+    await Issue.update({ category }, { where: { id } });
+    res.status(201).json({
+      message: "카드 카테고리 수정 성공",
+    });
+  } catch (err) {
+    res.status(404).json({
+      message: "실패",
+      err: err.message,
+    });
+  }
+};
+
 const destroy = async (req, res) => {
   const { id } = req.params;
   try {
@@ -41,5 +57,6 @@ const destroy = async (req, res) => {
 module.exports = {
   create,
   get,
+  update,
   destroy,
 };
