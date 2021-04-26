@@ -6,6 +6,6 @@ router.post("/", authMiddleware, controller.create);
 router.get("/", authMiddleware, controller.query);
 router.get("/:id", controller.get);
 router.put("/:id", controller.update);
-router.delete("/:id", controller.destroy);
+router.delete("/:id", authMiddleware, controller.destroy);
 
 module.exports = router;
